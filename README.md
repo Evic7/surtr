@@ -51,7 +51,7 @@ waitPixelColor 100 100 #00FF00 60
 startRecorder recorded.as
 ~~ do stuff …
 stopRecorder
-
+```
 
 
 Installation
