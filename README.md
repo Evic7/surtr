@@ -41,9 +41,9 @@ Formerly ScreenBot4. Now it has a name worthy of its power.
 ~~ Click button even if position changes
 seeImage save.png ?run click
 
-~~ Highlight every occurrence of "Surtr"
-textOnScreen eng Surtr dragToText all eng Surtr
-
+~~ Click every occurrence of "Surtr"
+textOnScreen eng  dragToText all eng Surtr
+textOnScreen eng "Surtr" mouse cliick {{textx}} {{texty}}
 ~~ Wait for pixel color change (e.g. download finished)
 waitPixelColor 100 100 #00FF00 60
 
@@ -60,13 +60,16 @@ Run installer
 (Optional) Add to PATH
 surtr --version
 
-Pro Version – WebUIRun webui4.exe → http://127.0.0.1:4444Live desktop streaming
+Pro Version – WebUIRun webui4.exe → http://127.0.0.1:4444
+Live desktop streaming
 File browser
 Terminal console
 Visual script builder
 Multi-user sessions
 
-Config tool: webuiconfig.exeRoadmapWindows v4.0 complete
+Config tool: webuiconfig.exe
+Roadmap
+Windows v4.0 complete
 Linux port (priority after 5k stars)
 macOS port
 Mobile controller app
@@ -76,8 +79,6 @@ CommunityX / Twitter: @evavictor456
 Issues & feature requests welcome
 Pull requests = instant legend status
 
-Automate with fire.
-The age of Surtr has begun.
 
 Made by Evander Victor 
 
