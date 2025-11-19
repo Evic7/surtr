@@ -1,7 +1,7 @@
 # Surtr ⚔️🔥
 **The fire giant of desktop automation**
 
-<img src="./assets/surtr-banner.png" alt="Surtr – Automate with fire" width="100%"/>
+<img src="./assets/surtr-banner.jpg" alt="Surtr – Automate with fire" width="100%"/>
 
 Surtr is the open-source automation engine forged in Ragnarök fire.  
 One CLI. Zero mercy. Total control over mouse, keyboard, windows, files, web, and pixels — Windows today, Linux & macOS in the forge.
