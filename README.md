@@ -11,7 +11,7 @@ Many automation tools rely on fixed coordinates or fragile selectors. Scripts br
 
 **Surtr** uses **image detection and OCR** to find and interact with elements visually — making automation stable on dynamic UIs. It's a single lightweight app that also handles macros, web tasks, file monitoring, and more.
 
-<!-- Replace with your best demo GIF (macro recorder or image click vs coordinate fail) -->
+
 ![Surtr Demo](assets/macro-recorder-demo.gif)  
 *(Macro recorder capturing actions and replaying reliably)*
 *(Image-based targeting works even if positions change)*
