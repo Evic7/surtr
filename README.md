@@ -74,11 +74,12 @@ Linux port (priority after 5k stars)
 macOS port
 Mobile controller app
 
-CommunityX / Twitter: @evavictor456
+
 
 Issues & feature requests welcome
 Pull requests = instant legend status
 
 
-Made by Evander Victor 
+Made by Victor James
 
+email: thescreenbot@gmail.com
