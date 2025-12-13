@@ -1,20 +1,27 @@
 # Surtr ⚔️🔥
-**The fire giant of desktop automation**
 
-<img src="./assets/github-cover.png" alt="Surtr – Automate with fire" width="100%"/>
 
-Surtr is the open-source automation engine forged in Ragnarök fire.  
-One CLI. Zero mercy. Total control over mouse, keyboard, windows, files, web, and pixels — Windows today, Linux & macOS in the forge.
+Surtr – Reliable Windows Automation When Other Tools Fail
 
-- Image & OCR automation that works when every other tool fails  
-- Built-in macro recorder (startRecorder → instant script)  
-- Full remote desktop streaming + multi-user WebUI (Pro)  
-- Segmented web downloader (Fetcher), JSON engine, watchdog, pixel-perfect detection, and 200+ commands  
-- 100% offline · Zero cloud · Pure fire
+[![GitHub stars](https://img.shields.io/github/stars/Evic7/surtr?style=social)](https://github.com/Evic7/surtr/stargazers)
+[![GitHub release](https://img.shields.io/github/v/release/Evic7/surtr)](https://github.com/Evic7/surtr/releases)
+[![Downloads](https://img.shields.io/github/downloads/Evic7/surtr/total)](https://github.com/Evic7/surtr/releases)
 
-Formerly ScreenBot4. Now it has a name worthy of its power.
+Many automation tools rely on fixed coordinates or fragile selectors. Scripts break when windows move, apps update, or screens change resolution.
+
+**Surtr** uses **image detection and OCR** to find and interact with elements visually — making automation stable on dynamic UIs. It's a single lightweight app that also handles macros, web tasks, file monitoring, and more.
+
+<!-- Replace with your best demo GIF (macro recorder or image click vs coordinate fail) -->
+![Surtr Demo](assets/macro-recorder-demo.gif)  
+*(Macro recorder capturing actions and replaying reliably)*
+*(Image-based targeting works even if positions change)*
 
 ## Why Surtr?
+
+- **Stable on changing UIs**: Clicks/buttons work via images or text — no more broken scripts from resizes or updates.
+- **All-in-one tool**: Combines GUI automation, macro recording, web scraping/downloads, file watching, system monitoring, and JSON handling.
+- **Easy to start**: Built-in macro recorder captures actions and generates scripts instantly.
+- **Free & open-source**: Community edition has everything core. Pro adds remote browser control (WebUI).
 
 | Feature                              | Surtr                                      | Power Automate / Ui.Vision / Others |
 |--------------------------------------|--------------------------------------------|-------------------------------------|
@@ -26,59 +33,56 @@ Formerly ScreenBot4. Now it has a name worthy of its power.
 | Cross-platform roadmap               | Yes (Linux/macOS in the forge)            | Usually not                         |
 | Price                                | Free / one-time Pro                        | Subscriptions                       |
 
-## Core Features
-- Mouse/keyboard control (coordinates + image-based)
-- OCR text detection & interaction (`moveToText`, `readScreen`)
-- Conditional logic, loops, labels, variables
-- File/watchdog monitoring, JSON engine, base64, pixel color detection
-- Built-in web fetcher & segmented downloader
-- System monitoring (CPU, RAM, disk)
-- Macro recorder (`startRecorder` / `stopRecorder`)
-- Pro: Live desktop streaming, file browser, terminal, visual script builder
+Perfect for productivity workflows, testing, data entry, backups, or when other tools (like coordinate-based macros) let you down.
 
-## Command Highlights
-```as
-~~ Click button even if position changes
-seeImage save.png ?run click
+## Quick Start
 
-~~ Click every occurrence of "Surtr"
-textOnScreen eng  dragToText all eng Surtr
-textOnScreen eng "Surtr" mouse cliick {{textx}} {{texty}}
-~~ Wait for pixel color change (e.g. download finished)
-waitPixelColor 100 100 #00FF00 60
+1. Download the installer: [Latest Release](https://github.com/Evic7/surtr/releases/latest)
+2. Run `surtr-setup-v4.0.exe` (optional: add to PATH)
+3. Test: `surtr --version`
 
-~~ Record actions and generate script instantly
-startRecorder recorded.as
-~~ do stuff …
-stopRecorder
-```
+Create a script (`example.as`):
+~~ Record actions instantly
+startRecorder mymacro.as
+~~ Do your mouse/keyboard actions, then stopRecorder
+~~ Click a button by image (works anywhere on screen)
+if seeImage save-button.png ?run mouse click
+~~ Web download example
+fetcher -fetch-download -url https://example.com/file.zip -saveto file.zip
+textRun: `surtr run example.as`
 
+## Key Features
 
-Installation
-Download surtr-setup-v4.0.exe from Releases
-Run installer
-(Optional) Add to PATH
-surtr --version
+- **Image & OCR targeting**: `seeImage`, `moveToWord`, `readScreen` — reliable on dynamic apps.
+- **Macro recorder**: `startRecorder` / `stopRecorder` for instant scripts.
+- **Web tools**: Built-in fetcher for scraping, API calls, segmented downloads.
+- **File & system**: Watch folders, monitor resources, JSON ops, pixel checks.
+- **Window control**: Focus, resize, screenshot specific apps.
+- **Pro WebUI**: Remote access with live desktop view, visual script builder, file browser.
 
-Pro Version – WebUIRun webui4.exe → http://127.0.0.1:4444
-Live desktop streaming
-File browser
-Terminal console
-Visual script builder
-Multi-user sessions
+Full command reference in [documentation]((http://screenbot.cu.ma/docs.php)) or run `define` in Surtr.
 
-Config tool: webuiconfig.exe
-Roadmap
-Windows v4.0 complete
-Linux port (priority after 5k stars)
-macOS port
-Mobile controller app
+## Installation
 
+- Free: Download installer from [Releases](https://github.com/Evic7/surtr/releases)
+- Pro upgrade: [Gumroad](https://evandervictor.gumroad.com/l/surtr)
 
+## Examples
 
-Issues & feature requests welcome
-Pull requests = instant legend status
+- Automate login even if window position changes.
+- Monitor folder and restore files on change.
+- Schedule or download large files with segmented support.
 
+More in the repo examples folder (coming soon) or community scripts.
+
+## Contributing & Feedback
+
+Issues, suggestions, or PRs welcome!  
+For support: Open an issue or email thescreenbot@gmail.com
+
+If traditional automation tools have let you down — try Surtr.
+
+🔥 Thanks for checking it out!
 
 Made by Victor James
 
