@@ -237,6 +237,93 @@ In SurtrUI Task Bot:
 Command: fileman copy C:\Data D:\Backup
 Interval: every day at 23:00
 
+
+## Surtr Configuration File – Customize Behavior Easily
+
+Surtr comes with a powerful configuration file that lets you control how the tool behaves without editing scripts or command-line flags every time.
+
+The file is located at:  
+`C:\Surtr\surtr\surtrconfig.conf`  
+(or in your install folder if you chose a custom path)
+
+You can open it with any text editor (Notepad, VS Code, etc.) and change values as needed.  
+Surtr reads this file on every startup.
+
+### All Available Settings (2025)
+
+```
+# Allow labels in external scripts (useful for modular automation)
+allowExternalScriptLabels=yes
+
+# Automatically back up watched files for easy restoration when needed 
+autoBackupFileOnWatch=yes
+
+# Show Surtr in the system tray
+trayIcon=yes
+
+# Display warnings when using safemode in parsing malformed commands
+showSafeModeWarnings=yes
+
+# Base installation path (used by SurtrUI and some commands)
+surtrPath=C:\\Surtr\\surtr
+
+# How long WebUI waits for Surtr to respond (seconds)
+webuiSurtrWaitTimeout=120
+
+# Use the built-in Surtr dark theme for WebUI
+useWebuiDefaultSurtrTheme=yes
+
+# Enable Surtr's custom theme in SurtrUI desktop app
+useSurtrTheme=no
+
+# Where to show command/script output:
+#   app   → captured in SurtrUI terminal
+#   shell → live in new CMD window
+surtrUiOutput=shell
+
+# When running scripts/commands:
+#   yes → CMD window stays open after finish (great for debugging)
+#   no  → CMD window closes automatically when done
+keepOutputShellOpen=no
+
+# When using Task Bot:
+#   yes → shows the console window during scheduled tasks
+#   no  → tasks run silently (no visible window)
+showShellWhenRunningTask=yes
+```
+
+How to Use & Customize
+
+Open the config file
+Go to C:\Surtr\surtr\ → open surtrconfig.conf in Notepad or any editor.
+Change a setting
+Example: Want the console to stay open every time?
+Change this line: `keepOutputShellOpen=no` to `keepOutputShellOpen=yes`
+Save & restart
+Save the file → restart SurtrUI or Surtr → new setting is active.
+
+Popular Customizations
+
+Debugging scripts → keepOutputShellOpen=yes + surtrUiOutput=shell
+→ Every run opens a CMD window that stays open so you can see errors/output
+Silent Task Bot jobs → showShellWhenRunningTask=no
+→ Scheduled tasks run invisibly in background
+Cleaner WebUI look → useWebuiDefaultSurtrTheme=yes
+→ Applies Surtr’s dark theme to the browser interface
+Hide tray icon → trayIcon=no
+→ SurtrUI closes completely instead of minimizing
+
+Notes
+
+Be careful when modifying settings because Surtr may raise an error or crash if a setting is wrongly modified or invalid
+Changes take effect only after restarting Surtr/SurtrUI
+No need to restart Windows — just the app
+Backup the config file before big changes (easy copy-paste)
+
+This single file gives you deep control over Surtr’s behavior — from visual feedback to silent background automation.
+
+
+
 Download & Get Started
 Latest Release → Download Installer
 No ads. No tracking. No subscriptions.
