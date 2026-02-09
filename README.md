@@ -313,12 +313,14 @@ lenJson users           ~~ prints how many users
 ```
 Safe check before use
 
-`json config {"active":true}`
+```
+json config {"active":true}
 
 if json config.[active] ?run emit "Config is active!"
 
 ~~ Delete when done
 jsonDelete config
+```
 
 Pro Tips
 
