@@ -420,10 +420,10 @@ This single file gives you deep control over Surtr’s behavior — from visual 
 
 
 Download & Get Started
-Latest Release → Download Installer
-No ads. No tracking. No subscriptions.
-Just powerful, reliable automation — completely free.
-Made with 🔥 by Victor James
-Questions or ideas? → Open an issue or email thescreenbot@gmail.com
-Need help building a Surtr script → email thescreenbot@gmail.com
+Latest Release → Download Installer <br>
+No ads. No tracking. No subscriptions. <br>
+Just powerful, reliable automation — completely free.  <br>
+Made with 🔥 by Victor James  <br>
+Questions or ideas? → Open an issue or email thescreenbot@gmail.com  <br>
+Need help building a Surtr script → email thescreenbot@gmail.com  <br>
 Star the repo if it helps you — ⭐
