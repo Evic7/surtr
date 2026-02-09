@@ -419,7 +419,7 @@ This single file gives you deep control over Surtr’s behavior — from visual 
 
 
 
-Download & Get Started
+Download & Get Started <br>
 Latest Release → Download Installer <br>
 No ads. No tracking. No subscriptions. <br>
 Just powerful, reliable automation — completely free.  <br>
