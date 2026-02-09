@@ -237,6 +237,99 @@ In SurtrUI Task Bot:
 Command: fileman copy C:\Data D:\Backup
 Interval: every day at 23:00
 
+## Surtr JSON – Easy & Powerful Data Handling
+
+Surtr has built-in JSON commands that let you create, read, modify, append, save, delete, and query JSON data directly in scripts — no external tools needed.
+
+JSON is stored in memory during your session (not persistent across runs unless saved to file).
+
+### How Paths Work in Surtr JSON
+
+- **Keys** (even simple ones) are always wrapped in square brackets: `[key]`
+- **Numeric indices** (for lists/arrays) are left as plain numbers: `.0`, `.1`, etc.
+- Paths start with the JSON name, then chain with dots: `name.[key].0.[subkey]`
+
+This is the exact syntax Surtr expects — no exceptions.
+
+### All JSON Commands (with real syntax)
+
+| Command                        | Purpose                                      | Correct Example                                      |
+|--------------------------------|----------------------------------------------|------------------------------------------------------|
+| `json <name> <json>`           | Create or update named JSON                  | `json config {"theme":"dark"}`                       |
+| `json <name>`                  | Print entire JSON                            | `json config`                                        |
+| `json <name>.[key]`            | Get value at key                             | `json config.[theme]`                                |
+| `json <name>.[key] <value>`    | Set value at key (creates if missing)        | `json config.[theme] light`                          |
+| `jsonAppend <path> <value>`    | Append to list or dict at path               | `jsonAppend config.[favorites] "SurtrUI"`            |
+| `jsonSave <name> <file> [indent]` | Save JSON to file (pretty with indent)    | `jsonSave config settings.json 2`                    |
+| `jsonDelete <path>`            | Delete key or index at path                  | `jsonDelete config.[theme]`<br>`jsonDelete config.[list].0` |
+| `lenJson <path>`               | Get length of array/string/object            | `lenJson config.[favorites]`                         |
+| `jsonParse <json>`             | Parse raw JSON string (prints, no storage)   | `jsonParse {"key":"value"}`                          |
+
+### Real Working Examples
+
+1. **Create, read, set, and delete**
+
+```
+~~ Create JSON
+json config '{"theme":"dark","favorites":["Task Bot"]}'
+
+~~ Print whole thing
+json config
+
+~~ Get specific value
+json config.[theme]   ~~ prints "dark"
+
+~~ Change value
+json config.[theme] light
+
+~~ Add to array
+jsonAppend config.[favorites] "SurtrUI"
+
+~~ Delete key
+jsonDelete config.[theme]
+
+~~ Delete array index
+jsonDelete config.[favorites].0
+
+~~ Save to file
+jsonSave config myconfig.json 2
+
+```
+Fetch API & parse
+```
+get {{data}}  fetcher -fetch '[{"url":"https://myapisite.com","parser":"json"}]'  -headers '{"User-Agent":"Mozilla/5.0","Accept":"application/json"}' -getdata
+
+
+~~ Parse raw output
+jsonParse {{data}}
+
+~~ If you want to store it
+json users {{data}}
+
+~~ Access safely
+json users.[0].[name]   ~~ prints first user's name
+lenJson users           ~~ prints how many users
+
+```
+Safe check before use
+
+`json config {"active":true}`
+
+if json config.[active] ?run emit "Config is active!"
+
+~~ Delete when done
+jsonDelete config
+
+Pro Tips
+
+Always use [] for keys — even simple ones like [theme], [user-id]
+Never wrap numbers — use .0, .1 for list indices
+Multi-word values are fine: json config.[msg] hello world
+Chain with fetcher: jsonParse {{data}} → then json mydata.[results].0.[title]
+Clean up memory: jsonDelete <name> when finished with big data
+Test in SurtrUI terminal — type commands live to see paths work
+
+Surtr JSON turns complex data into simple automation — configs, API results, lists, everything.
 
 ## Surtr Configuration File – Customize Behavior Easily
 
