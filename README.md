@@ -166,6 +166,46 @@ WebUI live desktop stream example
 
 
 
+## Surtr Macro Recorder — Turn Actions into Scripts Instantly
+
+One of Surtr’s most powerful features is the built-in **Macro Recorder** — it watches what you do with your mouse and keyboard, then automatically generates a perfect Surtr script (.as file) that replays those exact actions reliably.
+
+### How to Use It (30 seconds)
+
+1. Open SurtrUI (or run `surtrui` in CMD)
+2. run command: `startRecorder mymacro.as` OR `startRecorder mymacro.as 60` recorder will stop after 60 seconds
+   
+3. Do your normal actions:
+   - Click buttons
+   - Type text
+   - Move windows
+   - Scroll pages
+   - Anything!
+4. run `stopRecorder`
+ 
+5. Surtr instantly creates `mymacro.as` with mouse + keyboard actions saved to the script
+
+Now run it anytime:
+
+surtr run mymacro.as
+
+### Real Example of Generated Script
+
+Macro Recorder in action — recording & replaying reliably
+
+![Replay recorded script](assets/macro-recorder-demo.gif)  
+
+Pro Tips for Best Results
+
+Keep actions clear — avoid very fast clicks
+Use consistent button appearance — save clean PNGs of buttons/icons if needed
+Edit the script — open in SurtrUI → add conditions, loops, variables
+Combine with Task Bot — record once → schedule forever (e.g. auto-save every hour)
+Test after changes — resize windows or move apps → run script → verify it still works
+
+The Macro Recorder turns hours of repetitive work into a one-click script.
+
+
 Security notes:
 
 Change default password via webuiconfig.exe
