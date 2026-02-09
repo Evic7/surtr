@@ -1,5 +1,6 @@
 # Surtr ⚔️🔥
 
+**Reliable Windows Automation — Image & OCR Powered**
 
 Surtr – Reliable Windows Automation When Other Tools Fail
 
@@ -9,82 +10,197 @@ Surtr – Reliable Windows Automation When Other Tools Fail
 
 Many automation tools rely on fixed coordinates or fragile selectors. Scripts break when windows move, apps update, or screens change resolution.
 
-**Surtr** uses **image detection and OCR** to find and interact with elements visually — making automation stable on dynamic UIs. It's a single lightweight app that also handles macros, web tasks, file monitoring, and more.
+Surtr is a free, open-source, lightweight tool that automates almost anything on Windows — especially when other tools break due to UI changes, window moves, app updates, or different resolutions.
 
-Full documentation [here](http://screenbot.cu.ma/docs.php)
+Instead of fragile coordinates or brittle selectors, Surtr **looks at your screen like a human** — using **image detection** and **OCR (text recognition)** to find and interact with buttons, text, icons, and forms reliably.
 
-![Surtr Demo](assets/macro-recorder-demo.gif)  
-*(Macro recorder capturing actions and replaying reliably)*
-*(Image-based targeting works even if positions change)*
+![Surtr in action — clicking button by image even after resize](assets/surtr-image-click-demo.gif)  
+*(Image-based automation survives window moves and resolution changes)*
 
-## Why Surtr?
+## Why Choose Surtr?
 
-- **Stable on changing UIs**: Clicks/buttons work via images or text — no more broken scripts from resizes or updates.
-- **All-in-one tool**: Combines GUI automation, macro recording, web scraping/downloads, file watching, system monitoring, and JSON handling.
-- **Easy to start**: Built-in macro recorder captures actions and generates scripts instantly.
-- **Free & open-source**: Community edition has everything core. Pro adds remote browser control (WebUI).
+- Works when coordinate-based macros fail  
+- Built-in macro recorder turns actions into instant scripts  
+- Powerful web downloader (often faster than IDM)  
+- Advanced OCR for reading receipts, invoices, screenshots  
+- **SurtrUI** desktop IDE + **WebUI** remote access — both completely free  
+- Task Bot scheduler for unattended recurring jobs  
+- No subscriptions, no ads, fully offline by default  
 
-| Feature                              | Surtr                                      | Power Automate / Ui.Vision / Others |
-|--------------------------------------|--------------------------------------------|-------------------------------------|
-| Image + OCR automation               | Yes (robust, packaged Tesseract)          | Limited / cloud-only                |
-| Macro recorder → instant script      | Yes                                        | Rare                                |
-| Remote desktop + multi-user WebUI    | Yes (Pro)                                  | Paid / cloud only                   |
-| Segmented downloader (IDM-like)      | Yes (Fetcher)                              | No                                  |
-| Fully offline & open-source          | Yes                                        | No                                  |
-| Cross-platform roadmap               | Yes (Linux/macOS in the forge)            | Usually not                         |
-| Price                                | Free / one-time Pro                        | Subscriptions                       |
+## Quick Start (2 minutes)
 
-Perfect for productivity workflows, testing, data entry, backups, or when other tools (like coordinate-based macros) let you down.
+1. Download the latest release: [https://github.com/Evic7/surtr/releases/latest](https://github.com/Evic7/surtr/releases/latest)
+2. Run the installer (adds to PATH automatically)
+3. Open CMD and test:
+surtr --version
+text4. Launch the desktop IDE:  
+Double-click surtrUI on the desktop or `surtrui.exe` in surtr installation folder (or run `surtrui`)
+5. Launch WebUI (remote/browser control):  
+Run `webuilauncher` → open http://127.0.0.1:4444  
+Default login: admin / admin (change immediately!)
 
-## Quick Start
+You now have:
+- Local SurtrUI (IDE + Task Bot)
+- Remote WebUI (browser access to desktop, scripts, files)
 
-1. Download the installer: [Latest Release](https://github.com/Evic7/surtr/releases/latest)
-2. Run `surtr-setup-v4.0.exe` (optional: add to PATH)
-3. Test: `surtr --version`
+Full docs: [surtr.cu.ma/docs.php](http://surtr.cu.ma/docs.php) or run `define` in Surtr.
 
-Create a script (`example.as`):
-~~ Record actions instantly
-startRecorder mymacro.as
-~~ Do your mouse/keyboard actions, then stopRecorder
-~~ Click a button by image (works anywhere on screen)
-if seeImage save-button.png ?run mouse click
-~~ Web download example
-fetcher -fetch-download -url https://example.com/file.zip -saveto file.zip
-textRun: `surtr run example.as`
+## How Surtr Works: The Basics
 
-## Key Features
+Surtr runs as a lightweight CLI tool, but shines through its **visual intelligence**:
+- **Image Detection** (`seeImage`, `moveToWord`, `textOnScreen`)  
+Searches screen for images or text → returns coordinates or true/false
+- **OCR Engine** (`imageReader`, `readScreen`)  
+Extracts text from live screen or images
+- **Scripting (.as files)**  
+Variables `{{var}}`, conditions `if ?run`, loops, labels, multi-line `^^ … ^^`
+- **SurtrUI** — native IDE with visual builder, terminal, Task Bot
+- **WebUI** — browser-based remote control (live desktop stream, file browser, terminal, script builder)
 
-- **Image & OCR targeting**: `seeImage`, `moveToWord`, `readScreen` — reliable on dynamic apps.
-- **Macro recorder**: `startRecorder` / `stopRecorder` for instant scripts.
-- **Web tools**: Built-in fetcher for scraping, API calls, segmented downloads.
-- **File & system**: Watch folders, monitor resources, JSON ops, pixel checks.
-- **Window control**: Focus, resize, screenshot specific apps.
-- **Pro WebUI**: Remote access with live desktop view, visual script builder, file browser.
+Everything runs locally — no cloud dependency.
 
-Full command reference in [documentation]((http://screenbot.cu.ma/docs.php)) or run `define` in Surtr.
+## Power Feature #1 — Fetcher: Faster Downloads & Scraping
 
-## Installation
+Fetcher is Surtr's built-in web tool — often **faster than IDM** thanks to parallel segmented downloads, retries, and backoff.
 
-- Free: Download installer from [Releases](https://github.com/Evic7/surtr/releases)
-- Pro upgrade: [Gumroad](https://evandervictor.gumroad.com/l/surtr)
+### Single Fast Download (beats IDM on big files)
+<div align="center">
+  <img src="assets/livedownload.png" width="48%" alt="Live fetcher download">
+</div>
+```
+fetcher -fetch-download ^
+-url https://example.com/linux.iso ^
+-saveto linux.iso ^
+-split-download 8 ^           # 8 parallel chunks
+-chunk-size 4096 ^            # 4 MB per chunk
+-retries 10 ^                 # retry up to 10 times
+-backoff-factor 1.5 ^         # increasing delay on retry
+-show-progress                # live progress bar
+```
+Multiple / Batch Downloads
+Create downloads.json:
+```
+[
+  {"url": "https://site.com/file1.zip", "save_as": "dl1.zip", "split_download": 6},
+  {"url": "https://site.com/video.mp4", "save_as": "movie.mp4", "split_download": 12}
+]
+```
+Run:
+`fetcher -fetch-download-json downloads.json -max-worker 10`
+→ Downloads 10 files concurrently, each split → finishes batch much faster.
 
-## Examples
+Web Scraping with Fetcher
 
-- Automate login even if window position changes.
-- Monitor folder and restore files on change.
-- Schedule or download large files with segmented support.
+Fetch → parse → extract:
+```fetcher -fetch '[{"url":"https://news.com/article","parser":"bs4","select":"div"}]'```
 
-More in the repo examples folder (coming soon) or community scripts.
+BS4 vs SBS4 parser — which to use?
 
-## Contributing & Feedback
+BS4 (BeautifulSoup): full HTML parsing — accepts local file path even raw html text in the url field. Best for complex selectors, classes, nesting
+Example: -select "div.article > p:first-child"
+SBS4 (STRICT): only accepts http,https in the url field
+Example: -select "p" → all paragraphs as plain text
 
-Issues, suggestions, or PRs welcome!  
-For support: Open an issue or email thescreenbot@gmail.com
+Scrape Local HTML Files
 
-If traditional automation tools have let you down — try Surtr.
+```fetcher -fetch '[{"url":"C:\path\myfile.html","parser":"bs4","select":"div"}]'```
 
-🔥 Thanks for checking it out!
+Power Feature #2 — imageReader (Advanced OCR)
+Extract text from images, screenshots, receipts, invoices.
 
-Made by Victor James
+Basic:
+`imageReader -image receipt.png -lang eng`
 
-email: thescreenbot@gmail.com
+Best practices:
+
+Clean low-contrast scans `imageReader -image scan.jpg -transform bw -min-conf 65 -psm 6`
+Preserve columns/layout `imageReader -image invoice.png -char-width 9 -line-height 22 -save invoice.txt`
+Silent + save `imageReader -image screenshot.png -hide-output -save result.txt`
+Live screen OCR `screenShot temp.png ++ imageReader -image temp.png -lang eng`
+
+Power Feature #3 — SurtrUI (Desktop IDE)
+Launch: surtrui or double-click surtrUi
+
+Three tabs:
+
+Script Builder — visual editor, syntax highlighting, command buttons, run/save instantly
+Terminal — type Surtr commands live, see output immediately
+Surtr Task Bot — schedule anything (every 5 min, daily, weekly), monitor next run
+
+SurtrUI screenshot — Script Builder + Task Bot
+
+## Surtr in Action
+
+<div align="center">
+  <img src="assets/ide.png" width="48%" alt="SurtrUI Script Builder view">
+  <img src="assets/taskbot.png" width="48%" alt="SurtrUi Taskbot view">
+  <img src="assets/terminal.png" width="48%" alt="surtrUi Terminal view">
+</div>
+
+
+Power Feature #4 — WebUI (Remote Browser Control)
+
+Launch: webuilauncher → open http://127.0.0.1:4444
+
+<div align="center">
+  <img src="assets/webuisettings0.png" width="48%" alt="Surtr Webui Settings 0 view">
+  <img src="assets/webuisettings1.png" width="48%" alt="Surtr Webui Settings 1 view">
+  <img src="assets/webuiclidashboard.png" width="48%" alt="surtr Webui CLI view">
+</div>
+
+Default login: admin / admin (change immediately!)
+What you get in browser:
+
+Live Desktop Stream — watch Surtr automate in real time
+File Browser — explore/download files remotely
+Terminal — run commands from anywhere
+Script Builder — build/run scripts visually in browser
+
+WebUI live desktop stream example
+
+<div align="center">
+  <img src="assets/webuilogin.png" width="48%" alt="Surtr Webui Login view">
+  <img src="assets/dashboard.png" width="48%" alt="Surtr Webui Dashboard view">
+  <img src="assets/webscriptbuilder.png" width="48%" alt="surtr Webui Script Builder view">
+</div>
+
+
+
+Security notes:
+
+Change default password via webuiconfig.exe
+Use strong password + limit max users (webuilauncher ... maxuser:2)
+Runs locally — no external server needed
+
+Security & Best Practices
+
+Enable guest mode: guestUser on → blocks dangerous commands
+Password protect: setSecurityPassword strongpass → activateSecurity
+Use set {{onerror}} mylabel: to handle failures gracefully
+Validate inputs: if {{input}} ?cntn bad ?run stop
+Test in SurtrUI terminal before scheduling
+Keep Surtr updated — fixes improve security
+
+Quick Examples
+
+Auto-click save button 
+```
+while not seeImage save-btn.png ?run wait 2
+mouse click
+```
+Read price from screenshot
+```
+screenShot price.png ++ imageReader -image price.png -lang eng -save price.txt
+```
+Schedule daily backup
+In SurtrUI Task Bot:
+Command: fileman copy C:\Data D:\Backup
+Interval: every day at 23:00
+
+Download & Get Started
+Latest Release → Download Installer
+No ads. No tracking. No subscriptions.
+Just powerful, reliable automation — completely free.
+Made with 🔥 by Victor James
+Questions or ideas? → Open an issue or email thescreenbot@gmail.com
+Star the repo if it helps you — ⭐
