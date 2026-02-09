@@ -425,4 +425,5 @@ No ads. No tracking. No subscriptions.
 Just powerful, reliable automation — completely free.
 Made with 🔥 by Victor James
 Questions or ideas? → Open an issue or email thescreenbot@gmail.com
+Need help building a Surtr script → email thescreenbot@gmail.com
 Star the repo if it helps you — ⭐
