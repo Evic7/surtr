@@ -427,9 +427,17 @@ Made with 🔥 by Victor James  <br>
 Questions or ideas? → Open an issue or email thescreenbot@gmail.com  <br>
 Need help building a Surtr script → email thescreenbot@gmail.com  <br>
 Star the repo if it helps you — ⭐ <br>
-If you find Surtr useful, you can support the project with a coffee! ☕ <br>
+
+Surtr is free and open-source forever — but development takes time, coffee, and motivation!  
+If Surtr helps you automate better, saves hours, or just makes you smile — consider buying me a coffee.  
+
+Every donation keeps new features coming and the project alive. Thank you! ☕🔥 <br>
 <a href='https://ko-fi.com/Y8Y01TYV5D' target='_blank'>
 <img height='36' style='border:0px;height:36px;' 
   src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' 
   alt='Buy Me a Coffee at ko-fi.com' />
   </a>
+<br>
+  **One-time donations, memberships, or shop items all help!**  
+No pressure — just appreciation from one automation lover to another.
+
