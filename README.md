@@ -428,4 +428,8 @@ Questions or ideas? → Open an issue or email thescreenbot@gmail.com  <br>
 Need help building a Surtr script → email thescreenbot@gmail.com  <br>
 Star the repo if it helps you — ⭐ <br>
 If you find Surtr useful, you can support the project with a coffee! ☕ <br>
-<a href="https://www.buymeacoffee.com/evavictor" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/evavictor" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+       alt="Buy Me A Coffee" 
+       style="height: 60px !important; width: 217px !important;">
+</a>
