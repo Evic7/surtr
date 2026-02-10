@@ -429,8 +429,7 @@ Need help building a Surtr script → email thescreenbot@gmail.com  <br>
 Star the repo if it helps you — ⭐ <br>
 
 Surtr is free and open-source forever — but development takes time, coffee, and motivation!  
-If Surtr helps you automate better, saves hours, or just makes you smile — consider buying me a coffee.  
+If Surtr helps you automate better, saves hours, or just makes you smile — consider donating to Surtr development.  
 
 Every donation keeps new features coming and the project alive. Thank you! ☕🔥 <br>
-No pressure — just appreciation from one automation lover to another.
 
