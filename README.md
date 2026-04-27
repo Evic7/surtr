@@ -67,7 +67,9 @@ Fetcher is Surtr's built-in web tool — often **faster than IDM** thanks to par
 <div align="center">
   <img src="assets/livedownload.png" width="48%" alt="Live fetcher download">
 </div>
-```
+
+``` 
+
 fetcher -fetch-download ^
 -url https://example.com/linux.iso ^
 -saveto linux.iso ^
@@ -77,14 +79,17 @@ fetcher -fetch-download ^
 -backoff-factor 1.5 ^         # increasing delay on retry
 -show-progress                # live progress bar
 ```
+
 Multiple / Batch Downloads
 Create downloads.json:
+
 ```
 [
   {"url": "https://site.com/file1.zip", "save_as": "dl1.zip", "split_download": 6},
   {"url": "https://site.com/video.mp4", "save_as": "movie.mp4", "split_download": 12}
 ]
 ```
+
 Run:
 `fetcher -fetch-download-json downloads.json -max-worker 10`
 → Downloads 10 files concurrently, each split → finishes batch much faster.
