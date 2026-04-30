@@ -4,9 +4,9 @@
 
 Surtr – Reliable Windows Automation When Other Tools Fail
 
-[![GitHub stars](https://img.shields.io/github/stars/Evic7/surtr?style=social)](https://github.com/Evic7/surtr/stargazers)
-[![GitHub release](https://img.shields.io/github/v/release/Evic7/surtr)](https://github.com/Evic7/surtr/releases)
-[![Downloads](https://img.shields.io/github/downloads/Evic7/surtr/total)](https://github.com/Evic7/surtr/releases)
+[![GitHub stars](https://img.shields.io/github/stars/vyixor/surtr?style=social)](https://github.com/vyixor/surtr/stargazers)
+[![GitHub release](https://img.shields.io/github/v/release/vyixor/surtr)](https://github.com/vyixor/surtr/releases)
+[![Downloads](https://img.shields.io/github/downloads/vyixor/surtr/total)](https://github.com/vyixor/surtr/releases)
 
 Many automation tools rely on fixed coordinates or fragile selectors. Scripts break when windows move, apps update, or screens change resolution.
 
@@ -29,7 +29,7 @@ Instead of fragile coordinates or brittle selectors, Surtr **looks at your scree
 
 ## Quick Start (2 minutes)
 
-1. Download the latest release: [https://github.com/Evic7/surtr/releases/latest](https://github.com/vyixor/surtr/releases/latest)
+1. Download the latest release: [https://github.com/vyixor/surtr/releases/latest](https://github.com/vyixor/surtr/releases/latest)
 2. Run the installer (adds to PATH automatically)
 3. Open CMD and test:
 surtr --version
